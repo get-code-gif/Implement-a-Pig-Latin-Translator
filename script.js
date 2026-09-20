@@ -7,6 +7,7 @@ let vowel,firstIndex,second,before;
 for(let i=0; i<str.length; i++){
  
 if(regix.test(str[i])){
+ console.log(vowel)
  //first = str[str.search(str[i])];
  //firstIndex = str.indexOf(first);
  vowel = str.search(regix);
