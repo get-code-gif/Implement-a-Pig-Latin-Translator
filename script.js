@@ -32,3 +32,33 @@ return firstIndex + second;
 }
 
 console.log(translatePigLatin("algorithm"))
+
+
+
+function translatePigLatin(str) {
+  const regex = /[aeiou]/;
+
+  // No vowels
+  if (!regex.test(str)) {
+    return str + "ay";
+  }
+
+  // Find the first vowel
+  const vowel = str.search(regex);
+
+  // Vowel is at the beginning
+  if (vowel === 0) {
+    return str + "way";
+  }
+
+  // Separate consonants from the rest of the word
+  const before = str.slice(0, vowel);
+  const firstIndex = str.slice(vowel);
+
+  return firstIndex + before + "ay";
+}
+
+console.log(translatePigLatin("algorithm")); // algorithmway
+console.log(translatePigLatin("glove"));     // oveglay
+console.log(translatePigLatin("rhythm"));    // rhythmay
+console.log(translatePigLatin("schwartz"));  // artzschway
